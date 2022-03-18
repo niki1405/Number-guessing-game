@@ -1,0 +1,32 @@
+lower_bound = 0
+higher_bound = 500
+guessed_number = (lower_bound + higher_bound) // 2
+
+print("\nPlease choose any integer between {lower_bound} and {higher_bound} and keep it in your memory!")
+print("I(computer) will try to guess your chosen number, please help me answering the following!")
+
+search_status = True
+no_iteration_taken = 0
+n_choice = [1,2,3]
+
+while search_status:
+    no_iteration_taken += 1
+    print("\n Computer's guessed number is" , guessed_number, "!")
+    print("Please enter 1: if computer's guessed number", guessed_number, "is lower than what you choose !")
+    print("Please enter 2: if computer's guessed number", guessed_number, "is higher than what you choose !")
+    print("Please enter 3: if computer's guessed number", guessed_number, "is correct !")
+    user_input = int(input("Please enter your response: "))
+    if user_input not in n_choice:
+        print("Invalid number, please enter the numbers from the list", n_choice)
+    elif user_input == 1:
+        lower_bound = guessed_number
+    elif user_input == 2:
+        higher_bound = guessed_number
+    elif user_input == 3:
+        print("\n The correct number is", guessed_number, "!")
+        if no_iteration_taken == 1:
+            print("Haha.. I found it only in", no_iteration_taken, "guess!!")
+        else:
+            print("Haha.. I found it in", no_iteration_taken, "guesses!!")
+        search_status = False
+    guessed_number = (lower_bound + higher_bound) // 2
